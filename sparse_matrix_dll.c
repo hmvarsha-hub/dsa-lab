@@ -25,3 +25,60 @@ NODE insertend(NODE start,int row, int col,int item)
     temp->prev=cur;
     return start;
 }
+void display(NODE start)
+{
+    NODE temp;
+    if (start==NULL)
+        printf("\n list is empty");
+    else{
+        printf("\n Row \t col\t Data\n");
+        temp=start;
+        while(temp!=NULL)
+        {
+            printf("%d\t%d\t%d\n",temp->row,temp->col,temp->data);
+            temp=temp->next;
+
+        }
+    }
+}
+void displaymatrix(NODE start ,int m,int n)
+{
+    NODE temp=start;
+    int i,j;
+    for(i=1;i<=m;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            if(temp!=NULL && temp->row==i&&temp->col==j)
+            {
+                printf("%d\t",temp->data);
+                temp=temp->next;
+
+            }
+            else
+                printf("0\t");
+        }
+        printf("\n");
+        }
+    }
+
+int main(int i,int j,int m,int n,int item)
+{
+    NODE start =NULL;
+    printf("\n Read order of matrix");
+    scanf("%d%d",&m,&n);
+    printf("\n read elememts\n");
+    for(i=1;i<=m;i++)
+    {
+        for(j=1;j<=n;j++)
+        {
+            scanf("%d",&item);
+            if(item!=0)
+                start=insertend(start,i,j,item);
+        }
+    }
+    display(start);
+    printf("\n actual matrix is\n");
+    displaymatrix(start,m,n);
+    return 0;
+}
