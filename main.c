@@ -25,9 +25,9 @@ while(cur!=NULL)
         cur=cur->right;
 }
 if(key < prev->data)
-    prev->left=key;
+    prev->left=temp;
 else
-    prev->right=key;
+    prev->right=temp;
 return root;
 }
 void preorder(NODE root)
@@ -88,3 +88,4 @@ int main()
 
     return 0;
 }
+
