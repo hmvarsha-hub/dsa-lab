@@ -64,7 +64,7 @@ int main()
             if (n >= 1)
             {
                 printf("\nKey deleted = %d\n", a[1]);
-                a[1] = a[n];   // Replace root with last element
+                a[1] = a[n];  
                 n = n - 1;
 
                 heapify(a, n);
